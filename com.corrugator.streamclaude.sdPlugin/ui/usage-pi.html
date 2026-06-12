@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8" />
+  <title>StreamClaude Settings</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+      font-size: 12px;
+      color: #ccc;
+      background: #2d2d2d;
+      margin: 0;
+      padding: 12px;
+    }
+    .sdpi-wrapper { display: flex; flex-direction: column; gap: 12px; }
+    .sdpi-item { display: flex; align-items: center; justify-content: space-between; }
+    .sdpi-item-label { flex: 0 0 auto; margin-right: 12px; color: #969696; font-size: 11px; }
+    .sdpi-item-value { flex: 1; display: flex; align-items: center; gap: 8px; }
+    select {
+      width: 100%; background: #3d3d3d; color: #ccc;
+      border: 1px solid #555; border-radius: 4px; padding: 4px;
+    }
+    .section-title {
+      font-size: 11px; color: #969696; text-transform: uppercase;
+      letter-spacing: 0.5px; border-bottom: 1px solid #444;
+      padding-bottom: 4px; margin-bottom: 4px;
+    }
+  </style>
+</head>
+<body>
+  <div class="sdpi-wrapper">
+    <div class="section-title">Default View</div>
+    <div class="sdpi-item">
+      <div class="sdpi-item-label">Start with</div>
+      <div class="sdpi-item-value">
+        <select id="view">
+          <option value="0">Combined (Session + Week)</option>
+          <option value="1">Next Reset</option>
+        </select>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let websocket = null;
+    let uuid = null;
+    let settings = {};
+
+    function connectElgatoStreamDeckSocket(port, pluginUUID, registerEvent, info, actionInfoStr) {
+      uuid = pluginUUID;
+      const actionInfo = JSON.parse(actionInfoStr);
+      settings = actionInfo.payload?.settings || {};
+      applyToUI();
+
+      websocket = new WebSocket('ws://127.0.0.1:' + port);
+      websocket.onopen = function () {
+        websocket.send(JSON.stringify({ event: registerEvent, uuid: pluginUUID }));
+      };
+      websocket.onmessage = function (evt) {
+        const data = JSON.parse(evt.data);
+        if (data.event === 'didReceiveSettings') {
+          settings = data.payload?.settings || {};
+          applyToUI();
+        }
+      };
+
+      document.getElementById('view').addEventListener('change', function () {
+        settings.view = parseInt(this.value, 10);
+        saveSettings();
+      });
+    }
+
+    function applyToUI() {
+      if (typeof settings.view === 'number') {
+        // Settings may hold view=2 from the older three-view build; the
+        // plugin renders anything !== 1 as Combined, so mirror that here.
+        document.getElementById('view').value = String(settings.view === 1 ? 1 : 0);
+      }
+    }
+
+    function saveSettings() {
+      if (websocket && websocket.readyState === WebSocket.OPEN) {
+        websocket.send(JSON.stringify({
+          event: 'setSettings',
+          context: uuid,
+          payload: settings,
+        }));
+      }
+    }
+  </script>
+</body>
+</html>

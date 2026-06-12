@@ -1,0 +1,38 @@
+{
+  "name": "com.corrugator.streamclaude",
+  "version": "0.1.5",
+  "description": "Stream Deck plugin showing Claude Code usage (session / weekly / reset timer). Click cycles views.",
+  "type": "module",
+  "scripts": {
+    "build:helper": "mkdir -p .build && swiftc -O -target arm64-apple-macos12.0 -o .build/keychain-helper-arm64 helpers/keychain-helper.swift -framework Foundation -framework Security && swiftc -O -target x86_64-apple-macos12.0 -o .build/keychain-helper-x86_64 helpers/keychain-helper.swift -framework Foundation -framework Security && lipo -create -output com.corrugator.streamclaude.sdPlugin/bin/keychain-helper .build/keychain-helper-arm64 .build/keychain-helper-x86_64 && rm -rf .build && codesign --sign - --force --preserve-metadata=entitlements,requirements,flags com.corrugator.streamclaude.sdPlugin/bin/keychain-helper",
+    "build": "npm run build:helper && rollup -c",
+    "build:prod": "npm run clean:logs && rm -f com.corrugator.streamclaude.sdPlugin/bin/plugin.js.map && npm run build:helper && NODE_ENV=production rollup -c",
+    "clean:logs": "rm -f com.corrugator.streamclaude.sdPlugin/logs/*.log",
+    "pack": "npm run build:prod && npx @elgato/cli pack -f com.corrugator.streamclaude.sdPlugin",
+    "watch": "rollup -c -w",
+    "probe": "tsx scripts/probe.ts",
+    "build:gallery": "tsx scripts/build-gallery.ts"
+  },
+  "keywords": [
+    "streamdeck",
+    "claude",
+    "anthropic",
+    "usage"
+  ],
+  "author": "Corrugator",
+  "license": "ISC",
+  "dependencies": {
+    "@elgato/streamdeck": "^2.0.4"
+  },
+  "devDependencies": {
+    "@elgato/cli": "^1.7.3",
+    "@rollup/plugin-commonjs": "^29.0.2",
+    "@rollup/plugin-node-resolve": "^16.0.3",
+    "@rollup/plugin-typescript": "^12.3.0",
+    "@types/node": "^25.5.1",
+    "rollup": "^4.60.1",
+    "tslib": "^2.8.1",
+    "tsx": "^4.22.1",
+    "typescript": "^5.9.3"
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
+  "Name": "Usage Monitor for Claude Code",
+  "Version": "0.1.0.5",
+  "Author": "Corrugator",
+  "UUID": "com.corrugator.streamclaude",
+  "Actions": [
+    {
+      "Name": "Claude Usage",
+      "UUID": "com.corrugator.streamclaude.usage",
+      "Icon": "imgs/actions/usage/icon",
+      "Tooltip": "Show Claude Code usage. Press to cycle Session / Week / Reset.",
+      "Controllers": [
+        "Keypad",
+        "Encoder"
+      ],
+      "States": [
+        {
+          "Image": "imgs/actions/usage/icon"
+        }
+      ],
+      "PropertyInspectorPath": "ui/usage-pi.html",
+      "Encoder": {
+        "layout": "layouts/usage.json",
+        "TriggerDescription": {
+          "Push": "Cycle View",
+          "Rotate": "Change Poll Interval"
+        }
+      }
+    }
+  ],
+  "Category": "Usage Monitor for Claude Code",
+  "CategoryIcon": "imgs/plugin/category",
+  "CodePath": "bin/plugin.js",
+  "Description": "Show Claude Code session and weekly usage on a Stream Deck button. Click cycles through views.",
+  "Icon": "imgs/plugin/icon",
+  "SDKVersion": 3,
+  "Software": {
+    "MinimumVersion": "6.9"
+  },
+  "OS": [
+    {
+      "Platform": "mac",
+      "MinimumVersion": "12.0"
+    }
+  ],
+  "Nodejs": {
+    "Version": "20"
+  }
+}

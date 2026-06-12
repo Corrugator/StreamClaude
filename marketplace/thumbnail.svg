@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1920 960" fill="none">
+  <defs>
+    <radialGradient id="bg" cx="0.25" cy="0.5" r="0.85">
+      <stop offset="0%" stop-color="#252525"/>
+      <stop offset="100%" stop-color="#0E0E0E"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1920" height="960" fill="url(#bg)"/>
+
+  <!-- Hero icon, left side, vertically centered -->
+  <g transform="translate(200, 230)">
+    <rect width="500" height="500" rx="112" fill="#1C1C1C"/>
+    <rect x="2" y="2" width="496" height="496" rx="110"
+          stroke="#FFFFFF" stroke-width="1" opacity="0.05" fill="none"/>
+    <circle cx="250" cy="250" r="160" stroke="#2D2D2D" stroke-width="52" fill="none"/>
+    <circle cx="250" cy="250" r="160" stroke="#4ADE80" stroke-width="52" fill="none"
+            stroke-linecap="round"
+            stroke-dasharray="653 352"
+            transform="rotate(-90 250 250)"/>
+  </g>
+
+  <!-- Text block, right side -->
+  <g font-family="-apple-system, BlinkMacSystemFont, 'Helvetica Neue', Helvetica, Arial, sans-serif">
+    <text x="800" y="395" font-size="88" font-weight="800" fill="#FFFFFF">Usage Monitor</text>
+    <text x="800" y="495" font-size="88" font-weight="800" fill="#FFFFFF">for Claude Code</text>
+
+    <text x="800" y="605" font-size="36" font-weight="400" fill="#9CA3AF">Live session and weekly limits,</text>
+    <text x="800" y="655" font-size="36" font-weight="400" fill="#9CA3AF">plus a reset countdown — right on a Stream Deck button.</text>
+
+    <!-- Accent line -->
+    <rect x="800" y="710" width="80" height="4" rx="2" fill="#4ADE80"/>
+  </g>
+</svg>

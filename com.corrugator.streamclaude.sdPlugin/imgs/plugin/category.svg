@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" fill="none">
+  <!-- Category icon: white silhouette ring for dark Stream Deck chrome -->
+  <circle cx="72" cy="72" r="50" stroke="#FFFFFF" stroke-width="16" fill="none" opacity="0.25"/>
+  <circle cx="72" cy="72" r="50" stroke="#FFFFFF" stroke-width="16" fill="none"
+          stroke-linecap="round"
+          stroke-dasharray="204 110"
+          transform="rotate(-90 72 72)"/>
+</svg>

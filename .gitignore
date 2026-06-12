@@ -1,0 +1,15 @@
+# Dependencies
+node_modules/
+
+# Runtime logs (contain local usernames/paths)
+logs/
+com.corrugator.streamclaude.sdPlugin/logs/
+
+# Build artifacts (bundle + compiled keychain helper — rebuilt via `npm run build`)
+com.corrugator.streamclaude.sdPlugin/bin/
+*.streamDeckPlugin
+.build/
+
+# Local tooling & OS noise
+.claude/settings.local.json
+.DS_Store

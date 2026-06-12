@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144 144" fill="none">
+  <!-- Background ring (track) -->
+  <circle cx="72" cy="72" r="50" stroke="#2D2D2D" stroke-width="16" fill="none"/>
+  <!-- Progress arc (~65%, clockwise from top); circumference 2π·50 ≈ 314 → dash 204/110 -->
+  <circle cx="72" cy="72" r="50" stroke="#4ADE80" stroke-width="16" fill="none"
+          stroke-linecap="round"
+          stroke-dasharray="204 110"
+          transform="rotate(-90 72 72)"/>
+</svg>

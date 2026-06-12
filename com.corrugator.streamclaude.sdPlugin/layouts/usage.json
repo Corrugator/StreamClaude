@@ -1,0 +1,38 @@
+{
+  "$schema": "https://schemas.elgato.com/streamdeck/plugins/layout.json",
+  "id": "claude-usage-layout",
+  "items": [
+    {
+      "key": "viewLabel",
+      "type": "text",
+      "rect": [8, 4, 184, 18],
+      "font": { "size": 13, "weight": 600 },
+      "alignment": "center",
+      "color": "#A0A0A0"
+    },
+    {
+      "key": "bigValue",
+      "type": "text",
+      "rect": [8, 24, 184, 32],
+      "font": { "size": 26, "weight": 800 },
+      "alignment": "center",
+      "color": "#FFFFFF"
+    },
+    {
+      "key": "bar",
+      "type": "bar",
+      "rect": [16, 60, 168, 8],
+      "value": 0,
+      "range": { "min": 0, "max": 100 },
+      "border_w": 0
+    },
+    {
+      "key": "subLabel",
+      "type": "text",
+      "rect": [8, 74, 184, 22],
+      "font": { "size": 12, "weight": 500 },
+      "alignment": "center",
+      "color": "#C0C0C0"
+    }
+  ]
+}
