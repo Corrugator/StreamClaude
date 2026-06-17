@@ -10,6 +10,9 @@ com.corrugator.streamclaude.sdPlugin/bin/
 *.streamDeckPlugin
 .build/
 
+# Marketing / listing image sources (kept locally, not shipped in the repo)
+marketplace/
+
 # Release staging (assembled from marketplace/ + pack output)
 deployment/
 
