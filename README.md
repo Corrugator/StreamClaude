@@ -1,4 +1,4 @@
-# StreamClaude
+# StreamDeck-Claude
 
 A [Stream Deck](https://www.elgato.com/stream-deck) plugin that shows live **Claude Code** usage on a single button.
 
@@ -76,7 +76,7 @@ The first time the plugin reads the token, macOS prompts with an **"Always Allow
 
 ### Option A: Elgato Marketplace
 
-Install **"Usage Monitor for Claude Code"** from the Elgato Marketplace (once the listing is live). Updates arrive automatically.
+Install **"StreamDeck-Claude"** from the Elgato Marketplace (once the listing is live). Updates arrive automatically.
 
 ### Option B: download a packaged build
 

@@ -1,7 +1,7 @@
 {
   "$schema": "https://schemas.elgato.com/streamdeck/plugins/manifest.json",
-  "Name": "Usage Monitor for Claude Code",
-  "Version": "0.1.0.6",
+  "Name": "StreamDeck-Claude",
+  "Version": "0.1.0.7",
   "Author": "Corrugator",
   "UUID": "com.corrugator.streamclaude",
   "Actions": [
@@ -29,7 +29,7 @@
       }
     }
   ],
-  "Category": "Usage Monitor for Claude Code",
+  "Category": "StreamDeck-Claude",
   "CategoryIcon": "imgs/plugin/category",
   "CodePath": "bin/plugin.js",
   "Description": "Show Claude Code session and weekly usage on a Stream Deck button. Click cycles through views.",
